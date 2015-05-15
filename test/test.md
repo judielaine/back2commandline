@@ -1,0 +1,7 @@
+
+
+# Make sure terminal app configured keyboard correctly. EG: in terminal set alt/option to be the meta key
+
+# Load Path for custom lisp files mkdir .emacs.d/lisp
+# chsh -s /bin/tcsh (sanity) & make .tcshrc point to newly built emacs location
+#  
