@@ -1,0 +1,17 @@
+#
+# Back to the command line. ~JEB 20150515
+#
+#
+
+
+alias emacs /usr/local/bin/emacs 
+#     20150515 this is where the d/l vs of emacs built and installed.
+
+
+# ----------------------------------------------------------------------
+# RESOURCES
+# ----------------------------------------------------------------------
+#
+# [01] http://www.over-yonder.net/~fullermd/projects/tcshrc/.tcshrc
+# [02] http://www.tcsh.org/TipsAndTricks
+#
