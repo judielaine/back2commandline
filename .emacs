@@ -1,6 +1,9 @@
 ;;
 ;; Back to the command line ~JEB 20150515
 ;;
+;; Time-stamp: "2015-05-15 18:22:30 bushj"
+;;
+
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
@@ -20,11 +23,31 @@
 
 ;; 20150515 - http://www.emacswiki.org/emacs/LoadPath 
      (add-to-list 'load-path "~/.emacs.d/lisp/")
+;; 20150515 - http://www.emacswiki.org/emacs/TimeStamp
+     (add-hook 'before-save-hook 'time-stamp)
+     (setq time-stamp-pattern nil)
+
+;; ----------------------------------------------------------------------
+;;                                              tools in alphabetic order
+;; ----------------------------------------------------------------------
+
+
+;; GIT ------------------------------------------------------------------
+
+;;
+;; 20150515 - @WorkMac does not have the git.el file on it anywhere. So
+;;          d/l the two files from
+;;          http://git.kernel.org/cgit/git/git.git/tree/contrib/emacs/
+;;          See http://www.emacswiki.org/emacs/Git
+;;
+     (require 'git)
+     (require 'git-blame)
 
 
 ;; ----------------------------------------------------------------------
 ;;                                mode customizations in alphabetic order
 ;; ----------------------------------------------------------------------
+
 
 ;; MARKDOWN MODE --------------------------------------------------------
 
