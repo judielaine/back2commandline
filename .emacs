@@ -1,7 +1,7 @@
 ;;
 ;; Back to the command line ~JEB 20150515
 ;;
-;; Time-stamp: "2015-05-17 21:37:06 judielaine"
+;; Time-stamp: "2015-05-18 08:11:01 judielaine"
 ;;
 
 
@@ -59,12 +59,13 @@
 
 
 ;; DIARY MODE -----------------------------------------------------------
-
+;; REF: http://sunsite.univie.ac.at/textbooks/emacs/emacs_33.html
 ;; 20150517 - http://www.emacswiki.org/emacs/DiaryMode
 (require 'calendar)  
 (calendar-set-date-style 'iso)
-
-
+;; 20150518 - sorted in order
+(add-hook 'list-diary-entries-hook 'sort-diary-entries t)
+(setq diary-file "~/.emacs.d/PIM/diary")
 
 ;; EVERNOTE MODE --------------------------------------------------------
 ;; 2015-05-17 http://emacs-evernote-mode.googlecode.com/svn/branches/0_41/doc/readme_en.html
