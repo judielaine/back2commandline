@@ -1,11 +1,40 @@
 #
 # Back to the command line. ~JEB 20150515
 #
-# Time-stamp: "2015-05-15 17:22:15 bushj"
+# Time-stamp: "2015-05-17 17:38:22 judielaine"
 
 
-alias emacs /usr/local/bin/emacs 
-    # 20150515 this is where the d/l vs of emacs was installed.
+# ----------------------------------------------------------------------
+# Local settings [01]
+# 
+# ----------------------------------------------------------------------
+set whichMachine=`uname -n`
+switch("$whichMachine")
+    case "pennyroyal":
+	echo "Welcome home, Blondie!"
+	# MacPorts Installer (automatic) addition - this is probably not
+	# a sustainable location. 20150517
+	setenv PATH "/opt/local/bin:/opt/local/sbin:$PATH"
+	breaksw
+    case "MBPBUSH":
+	# 20150515 this is where the d/l vs of emacs was installed and is needed for office
+	alias emacs /usr/local/bin/emacs
+	breaksw
+endsw	    
+
+# ----------------------------------------------------------------------
+
+
+# Screen management
+# It would be lovely to know how to deal with the undefined variable in a
+# non-screen window so that screen window prompts could have the number at
+# the cmd line prompt. Possible solution is a dot-rc file called when
+# screen starts. 20150517
+# set screenWindow = $WINDOW
+
+
+
+
 
 set autolist set color set colorcat
 set nobeep
@@ -21,11 +50,5 @@ set nobeep
 # [02] http://www.tcsh.org/TipsAndTricks
 #
 
-##
-# Your previous /Users/judielaine/.tcshrc file was backed up as /Users/judielaine/.tcshrc.macports-saved_2015-05-16_at_07:46:10
-##
 
-# MacPorts Installer addition on 2015-05-16_at_07:46:10: adding an appropriate PATH variable for use with MacPorts.
-setenv PATH "/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
 

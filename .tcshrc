@@ -1,7 +1,7 @@
 #
 # Back to the command line. ~JEB 20150515
 #
-# Time-stamp: "2015-05-17 17:38:22 judielaine"
+# Time-stamp: "2015-05-18 09:08:11 bushj"
 
 
 # ----------------------------------------------------------------------
@@ -16,7 +16,7 @@ switch("$whichMachine")
 	# a sustainable location. 20150517
 	setenv PATH "/opt/local/bin:/opt/local/sbin:$PATH"
 	breaksw
-    case "MBPBUSH":
+    case "bushj-mbasm":
 	# 20150515 this is where the d/l vs of emacs was installed and is needed for office
 	alias emacs /usr/local/bin/emacs
 	breaksw
