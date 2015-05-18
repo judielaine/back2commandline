@@ -1,11 +1,16 @@
 #
 # Back to the command line. ~JEB 20150515
 #
-#
+# Time-stamp: "2015-05-15 17:22:15 bushj"
 
 
 alias emacs /usr/local/bin/emacs 
-#     20150515 this is where the d/l vs of emacs built and installed.
+    # 20150515 this is where the d/l vs of emacs was installed.
+
+set autolist set color set colorcat
+set nobeep
+    # 20150515 #7 from [02]
+
 
 
 # ----------------------------------------------------------------------
@@ -15,3 +20,12 @@ alias emacs /usr/local/bin/emacs
 # [01] http://www.over-yonder.net/~fullermd/projects/tcshrc/.tcshrc
 # [02] http://www.tcsh.org/TipsAndTricks
 #
+
+##
+# Your previous /Users/judielaine/.tcshrc file was backed up as /Users/judielaine/.tcshrc.macports-saved_2015-05-16_at_07:46:10
+##
+
+# MacPorts Installer addition on 2015-05-16_at_07:46:10: adding an appropriate PATH variable for use with MacPorts.
+setenv PATH "/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+

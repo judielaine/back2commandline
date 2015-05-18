@@ -1,7 +1,7 @@
 ;;
 ;; Back to the command line ~JEB 20150515
 ;;
-;; Time-stamp: "2015-05-15 18:31:05 bushj"
+;; Time-stamp: "2015-05-17 21:37:06 judielaine"
 ;;
 
 
@@ -21,28 +21,36 @@
  )
 
 
+
+;; ----------------------------------------------------------------------
+;;                                                         file locations
+;; ----------------------------------------------------------------------
 ;; 20150515 - http://www.emacswiki.org/emacs/LoadPath 
-     (add-to-list 'load-path "~/.emacs.d/lisp/")
-;; 20150515 - http://www.emacswiki.org/emacs/TimeStamp
-     (add-hook 'before-save-hook 'time-stamp)
-     (setq time-stamp-pattern nil)
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+
+;; 20150517 - http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html
+(setq org-agenda-files (list "~/.emacs.d/PIM/Back2CommandLine.org"))
+
 
 ;; ----------------------------------------------------------------------
 ;;                                              tools in alphabetic order
 ;; ----------------------------------------------------------------------
 
+;; 20150515 - http://www.emacswiki.org/emacs/TimeStamp
+(add-hook 'before-save-hook 'time-stamp)
+(setq time-stamp-pattern nil)
+
+
 
 ;; GIT ------------------------------------------------------------------
-
-;;
+;
 ;; 20150515 - @WorkMac does not have the git.el file on it anywhere. So
 ;;          d/l the two files from
 ;;          http://git.kernel.org/cgit/git/git.git/tree/contrib/emacs/
 ;;          See http://www.emacswiki.org/emacs/Git
 ;;          See http://alexott.net/en/writings/emacs-vcs/EmacsGit.html#sec3
-
-     (require 'git)
-     (require 'git-blame)
+(require 'git)
+(require 'git-blame)
 
 
 ;; ----------------------------------------------------------------------
@@ -50,13 +58,30 @@
 ;; ----------------------------------------------------------------------
 
 
+;; DIARY MODE -----------------------------------------------------------
+
+;; 20150517 - http://www.emacswiki.org/emacs/DiaryMode
+(require 'calendar)  
+(calendar-set-date-style 'iso)
+
+
+
+;; EVERNOTE MODE --------------------------------------------------------
+;; 2015-05-17 http://emacs-evernote-mode.googlecode.com/svn/branches/0_41/doc/readme_en.html
+(require 'evernote-mode)
+(setq evernote-username "judielaine") ; optional: you can use this username as default.
+(setq evernote-enml-formatter-command '("w3m" "-dump" "-I" "UTF8" "-O" "UTF8")) ; option
+(global-set-key "\C-cec" 'evernote-create-note)
+(global-set-key "\C-ceo" 'evernote-open-note)
+(global-set-key "\C-ces" 'evernote-search-notes)
+(global-set-key "\C-ceS" 'evernote-do-saved-search)
+(global-set-key "\C-cew" 'evernote-write-note)
+(global-set-key "\C-cep" 'evernote-post-region)
+(global-set-key "\C-ceb" 'evernote-browser)
 ;; MARKDOWN MODE --------------------------------------------------------
 
 ;;
 ;; 20150515 - adding markdown mode 
-;;          Getting  
-;;            File mode specification error: (error "Unknown keyword :safe")
-;;          upon file opening. 20150515
 
      (autoload 'markdown-mode "markdown-mode"
        "Major mode for editing Markdown files" t)
@@ -72,22 +97,37 @@
 			     'check-parens
 			     nil t))))
 
-;; ORG  MODE --------------------------------------------------------
+;; ORG MODE -------------------------------------------------------------
+;; Creating symlink from .emacs.d/PIM to Google Drive space so that the
+;; PII can sync between machines. 
 
-;;
-;; 20150515 - org-mode changes
-;;
+;; 20150515 - 17 as i am learning the mode 
+;;          automatically go to org-mode for .org
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+;;          per http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+;;          timestamps on "done" C-c C-t
+(setq org-log-done t)
 
-     (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+;;          from http://www.emacswiki.org/emacs/OrgMode#toc19 
+(defun sacha/org-html-checkbox (checkbox)
+  "Format CHECKBOX into HTML."
+  (case checkbox (on "<span class=\"check\">&#x2611;</span>") ; checkbox (checked)
+	(off "<span class=\"checkbox\">&#x2610;</span>")
+	(trans "<code>[-]</code>")
+	(t "")))
+(defadvice org-html-checkbox (around sacha activate)
+    (setq ad-return-value (sacha/org-html-checkbox (ad-get-arg 0))))
+;;          from http://stackoverflow.com/questions/22988092/emacs-org-mode-export-markdown
+(eval-after-load "org"
+    '(require 'ox-md nil t))
 
-;;   Choose key bindings
 
-     (define-key global-map "\C-cl" 'org-store-link)
-     (define-key global-map "\C-ca" 'org-agenda)
-
-;;   Activate `font-lock-mode' in org-mode buffers, functionality depends on font-locking being active.
-     ;; (global-font-lock-mode 1)                     ; for all buffers
-     (add-hook 'org-mode-hook 'turn-on-font-lock)  ; org-mode buffers only
+;;           TBD
+;;   Activate `font-lock-mode' in org-mode buffers, functionality depends
+;;   on font-locking being active.
+;     (add-hook 'org-mode-hook 'turn-on-font-lock)  ; org-mode buffers only
 
 ;; ----------------------------------------------------------------------
 ;;                                                              resources
