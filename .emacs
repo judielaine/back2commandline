@@ -1,7 +1,7 @@
 ;;
 ;; Back to the command line ~JEB 20150515
 ;;
-;; Time-stamp: "2015-05-18 08:11:01 judielaine"
+;; Time-stamp: "2015-05-19 13:58:32 bushj"
 ;;
 
 
@@ -29,9 +29,10 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;; 20150517 - http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html
-(setq org-agenda-files (list "~/.emacs.d/PIM/Back2CommandLine.org"))
-
-
+;; 20150519 - changing to include the whole directory
+(setq org-agenda-files (list "~/.emacs.d/PIM/"))
+(setq org-agenda-include-diary t)
+(setq diary-file "~/.emacs.d/PIM/diary")
 ;; ----------------------------------------------------------------------
 ;;                                              tools in alphabetic order
 ;; ----------------------------------------------------------------------
@@ -65,8 +66,9 @@
 (calendar-set-date-style 'iso)
 ;; 20150518 - sorted in order
 (add-hook 'list-diary-entries-hook 'sort-diary-entries t)
-(setq diary-file "~/.emacs.d/PIM/diary")
 
+;; 20150519
+(setq org-agenda-include-diary t)
 ;; EVERNOTE MODE --------------------------------------------------------
 ;; 2015-05-17 http://emacs-evernote-mode.googlecode.com/svn/branches/0_41/doc/readme_en.html
 (require 'evernote-mode)
