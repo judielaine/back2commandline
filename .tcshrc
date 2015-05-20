@@ -1,7 +1,7 @@
 #
 # Back to the command line. ~JEB 20150515
 #
-# Time-stamp: "2015-05-18 09:08:11 bushj"
+# Time-stamp: "2015-05-20 15:31:22 bushj"
 
 
 # ----------------------------------------------------------------------
@@ -19,7 +19,9 @@ switch("$whichMachine")
     case "bushj-mbasm":
 	# 20150515 this is where the d/l vs of emacs was installed and is needed for office
 	alias emacs /usr/local/bin/emacs
-	breaksw
+	# 20150520 this is where Brew puts code
+	setenv PATH "/usr/local/Cellar:$PATH"
+		breaksw
 endsw	    
 
 # ----------------------------------------------------------------------
@@ -52,3 +54,7 @@ set nobeep
 
 
 
+
+# Setting PATH for Python 3.4
+# The orginal version is saved in .cshrc.pysave
+set path=(/Library/Frameworks/Python.framework/Versions/3.4/bin $path)
