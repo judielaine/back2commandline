@@ -1,7 +1,7 @@
 ;;
 ;; Back to the command line ~JEB 20150515
 ;;
-;; Time-stamp: "2015-05-19 13:58:32 bushj"
+;; Time-stamp: "2015-05-21 14:26:09 bushj"
 ;;
 
 
@@ -27,6 +27,9 @@
 ;; ----------------------------------------------------------------------
 ;; 20150515 - http://www.emacswiki.org/emacs/LoadPath 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
+;; 20150521 - http://gabrielelanaro.github.io/emacs-for-python/
+(load-file "~/.emacs.d/lisp/gabrielelanaro-emacs-for-python-2f284d1/epy-init.el")
+
 
 ;; 20150517 - http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html
 ;; 20150519 - changing to include the whole directory
@@ -57,6 +60,9 @@
 ;; ----------------------------------------------------------------------
 ;;                                mode customizations in alphabetic order
 ;; ----------------------------------------------------------------------
+
+;; column-number-mode 20150521 omg not default.
+(column-number-mode)
 
 
 ;; DIARY MODE -----------------------------------------------------------
@@ -112,6 +118,7 @@
 (define-key global-map "\C-ca" 'org-agenda)
 ;;          timestamps on "done" C-c C-t
 (setq org-log-done t)
+(setq org-catch-invisible-edits t)
 
 ;;          from http://www.emacswiki.org/emacs/OrgMode#toc19 
 (defun sacha/org-html-checkbox (checkbox)
@@ -126,11 +133,11 @@
 (eval-after-load "org"
     '(require 'ox-md nil t))
 
+;; PYTHON MODE ----------------------------------------------------------
+;; 20150521 - http://stackoverflow.com/questions/10241279/how-do-i-run-a-python-interpreter-in-emacs
+(setq python-shell-interpreter "/usr/local/bin/python3")
 
-;;           TBD
-;;   Activate `font-lock-mode' in org-mode buffers, functionality depends
-;;   on font-locking being active.
-;     (add-hook 'org-mode-hook 'turn-on-font-lock)  ; org-mode buffers only
+
 
 ;; ----------------------------------------------------------------------
 ;;                                                              resources
