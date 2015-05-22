@@ -1,7 +1,7 @@
 ;;
 ;; Back to the command line ~JEB 20150515
 ;;
-;; Time-stamp: "2015-05-21 14:26:09 bushj"
+;; Time-stamp: "2015-05-22 10:53:57 bushj"
 ;;
 
 
@@ -116,10 +116,6 @@
 ;;          per http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
-;;          timestamps on "done" C-c C-t
-(setq org-log-done t)
-(setq org-catch-invisible-edits t)
-
 ;;          from http://www.emacswiki.org/emacs/OrgMode#toc19 
 (defun sacha/org-html-checkbox (checkbox)
   "Format CHECKBOX into HTML."
@@ -131,7 +127,25 @@
     (setq ad-return-value (sacha/org-html-checkbox (ad-get-arg 0))))
 ;;          from http://stackoverflow.com/questions/22988092/emacs-org-mode-export-markdown
 (eval-after-load "org"
-    '(require 'ox-md nil t))
+  '(require 'ox-md nil t))
+
+;; 20150521 - reading the org-mode manual systematically
+(setq org-catch-invisible-edits t
+      ;; from http://writequit.org/org/settings.html
+      ;; Separate drawers for clocking and logs 20150521
+      org-drawers `("PROPERTIES" "CLOCK" "LOGBOOK" "HIDDEN" "RESULTS")
+      ;; timestamps on "done" C-c C-t 20150515-17
+      org-log-done t)
+
+;; 20150522 - http://stackoverflow.com/questions/30312638/is-there-a-package-or-setting-to-show-an-org-mode-link-under-cursor-destinatio
+(defun org-link-message ()
+  "Show org-mode link destination under cursor in the mode line: by John Kitchin"
+  (let ((object (org-element-context)))
+    (when (eq (car object) 'link)
+      (message "%s"
+	       (org-element-property :raw-link object)))))
+;(add-hook 'post-command-hook 'org-link-message)
+
 
 ;; PYTHON MODE ----------------------------------------------------------
 ;; 20150521 - http://stackoverflow.com/questions/10241279/how-do-i-run-a-python-interpreter-in-emacs
