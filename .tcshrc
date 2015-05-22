@@ -1,7 +1,7 @@
 #
 # Back to the command line. ~JEB 20150515
 #
-# Time-stamp: "2015-05-21 10:53:32 bushj"
+# Time-stamp: "2015-05-21 19:58:01 judielaine"
 
 
 # ----------------------------------------------------------------------
@@ -14,7 +14,8 @@ switch("$whichMachine")
 	echo "Welcome home, Blondie!"
 	# MacPorts Installer (automatic) addition - this is probably not
 	# a sustainable location. 20150517
-	setenv PATH "/opt/local/bin:/opt/local/sbin:$PATH"
+	setenv PATH "/opt/local/Library/Frameworks/Python.framework/Versions/3.4/bin:$PATH"
+        setenv PATH "/opt/local/bin:/opt/local/sbin:$PATH"
 	breaksw
     case "bushj-mbasm.oa.oclc.org":
 	echo "Now using the Brew paths and other tcshrc customizations."
