@@ -1,7 +1,7 @@
 ;;
 ;; Back to the command line ~JEB 20150515
 ;;
-;; Time-stamp: "2015-05-21 14:26:09 bushj"
+;; Time-stamp: "2015-05-25 10:14:07 judielaine"
 ;;
 
 
@@ -120,7 +120,12 @@
 (setq org-log-done t)
 (setq org-catch-invisible-edits t)
 
-;;          from http://www.emacswiki.org/emacs/OrgMode#toc19 
+;;          from http://www.emacswiki.org/emacs/OrgMode#toc19 See
+;; UPDATE 2014-03-28: Newer versions of org have the
+;; org-html-checkbox-type variable, which you can set to unicode. Use
+;; M-x customize-variable org-html-checkbox-type to see if you have
+;; it. --
+;; http://sachachua.com/blog/2014/03/emacs-tweaks-export-org-checkboxes-using-utf-8-symbols/
 (defun sacha/org-html-checkbox (checkbox)
   "Format CHECKBOX into HTML."
   (case checkbox (on "<span class=\"check\">&#x2611;</span>") ; checkbox (checked)
