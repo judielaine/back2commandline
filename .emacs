@@ -1,7 +1,7 @@
 ;;
 ;; Back to the command line ~JEB 20150515
 ;;
-;; Time-stamp: "2015-05-25 10:14:07 judielaine"
+;; Time-stamp: "2015-05-26 17:33:17 judielaine"
 ;;
 
 
@@ -29,6 +29,8 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 ;; 20150521 - http://gabrielelanaro.github.io/emacs-for-python/
 (load-file "~/.emacs.d/lisp/gabrielelanaro-emacs-for-python-2f284d1/epy-init.el")
+;; 20150526
+(load-file "~/.emacs.d/evernotekey.el")
 
 
 ;; 20150517 - http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html
@@ -44,8 +46,6 @@
 (add-hook 'before-save-hook 'time-stamp)
 (setq time-stamp-pattern nil)
 
-
-
 ;; GIT ------------------------------------------------------------------
 ;
 ;; 20150515 - @WorkMac does not have the git.el file on it anywhere. So
@@ -56,11 +56,28 @@
 (require 'git)
 (require 'git-blame)
 
+;; Package management ---------------------------------------------------
+;
+;; http://melpa.org/#/ package.el now includes a mechanism to upgrade
+;; packages. After running package-list-packages, type U (mark
+;; Upgradable packages) and then x (eXecute the installs and
+;; deletions). When it’s done installing all the packages it will ask
+;; if you want to delete the obsolete packages and so you can hit y
+;; (Yes).
+(require 'package) 
+(add-to-list 'package-archives
+	     '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives
+	     '("org" . "http://orgmode.org/elpa/") t)
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize) 
 
 ;; ----------------------------------------------------------------------
 ;;                                mode customizations in alphabetic order
 ;; ----------------------------------------------------------------------
-
+;
 ;; column-number-mode 20150521 omg not default.
 (column-number-mode)
 
@@ -75,8 +92,10 @@
 
 ;; 20150519
 (setq org-agenda-include-diary t)
+
 ;; EVERNOTE MODE --------------------------------------------------------
 ;; 2015-05-17 http://emacs-evernote-mode.googlecode.com/svn/branches/0_41/doc/readme_en.html
+(setq evernote-ruby-command "/opt/local/bin/ruby")
 (require 'evernote-mode)
 (setq evernote-username "judielaine") ; optional: you can use this username as default.
 (setq evernote-enml-formatter-command '("w3m" "-dump" "-I" "UTF8" "-O" "UTF8")) ; option
@@ -116,20 +135,20 @@
 ;;          per http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
-<<<<<<< HEAD
+
 ;;          timestamps on "done" C-c C-t
 (setq org-log-done t)
 (setq org-catch-invisible-edits t)
-
+(setq org-html-checkbox-type 'html)
 ;;          from http://www.emacswiki.org/emacs/OrgMode#toc19 See
 ;; UPDATE 2014-03-28: Newer versions of org have the
 ;; org-html-checkbox-type variable, which you can set to unicode. Use
 ;; M-x customize-variable org-html-checkbox-type to see if you have
 ;; it. --
 ;; http://sachachua.com/blog/2014/03/emacs-tweaks-export-org-checkboxes-using-utf-8-symbols/
-=======
+
 ;;          from http://www.emacswiki.org/emacs/OrgMode#toc19 
->>>>>>> origin/master
+
 (defun sacha/org-html-checkbox (checkbox)
   "Format CHECKBOX into HTML."
   (case checkbox (on "<span class=\"check\">&#x2611;</span>") ; checkbox (checked)

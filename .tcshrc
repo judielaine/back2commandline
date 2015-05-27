@@ -1,58 +1,52 @@
 #
 # Back to the command line. ~JEB 20150515
 #
-# Time-stamp: "2015-05-21 19:58:01 judielaine"
+# Time-stamp: "2015-05-26 18:16:37 judielaine"
 
 
 # ----------------------------------------------------------------------
 # Local settings [01]
-# 
 # ----------------------------------------------------------------------
-set whichMachine=`uname -n`
-switch("$whichMachine")
-    case "pennyroyal":
-	echo "Welcome home, Blondie!"
-	# MacPorts Installer (automatic) addition - this is probably not
-	# a sustainable location. 20150517
-	setenv PATH "/opt/local/Library/Frameworks/Python.framework/Versions/3.4/bin:$PATH"
-        setenv PATH "/opt/local/bin:/opt/local/sbin:$PATH"
+set whichUser=$USER
+switch("$whichUser")
+    case "judielaine":
+	alias emacs /opt/local/bin/emacs
+    	echo "Welcome home, Blondie!"
+	setenv PATH /opt/local/bin:/opt/local/sbin:$PATH
+	setenv PATH $PATH":/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin/"
+	setenv PATH $PATH":/opt/local/Library/Frameworks/Python.framework/Versions/3.4/bin"
+	echo "Path is "$PATH
 	breaksw
-    case "bushj-mbasm.oa.oclc.org":
+    case "bushj":
 	echo "Now using the Brew paths and other tcshrc customizations."
     	# 20150515 this is where the d/l vs of emacs was installed and is needed for office
 	alias emacs /usr/local/bin/emacs
 	# 20150520 this is where Brew puts code
 	setenv PATH "/usr/local/Cellar:$PATH"
-		breaksw
-    case "bushj-mbasm":
-    # might need this second path for when on home network?
-        # 20150515 this is where the d/l vs of emacs was installed and is needed for office         
-        alias emacs /usr/local/bin/emacs
-        # 20150520 this is where Brew puts code                                                     
-        setenv PATH "/usr/local/Cellar:$PATH"
-                breaksw
-
+        echo "Path is "$PATH
+       	breaksw
 endsw	    
 
+# 20150526 http://www.tcsh.org/PromptExamples
+set ellipsis
+set prompt = "%m:r:%c03 [%h] "
+
+
 # ----------------------------------------------------------------------
-
-
 # Screen management
 # It would be lovely to know how to deal with the undefined variable in a
 # non-screen window so that screen window prompts could have the number at
 # the cmd line prompt. Possible solution is a dot-rc file called when
-# screen starts. 20150517
+# screen starts. 20150517 Ha, figured it out. 20150526
 # set screenWindow = $WINDOW
 
-
-
-
+if($?WINDOW)then
+    set prompt = "%m:"$WINDOW":%c03 [%h] "   
+endif
 
 set autolist set color set colorcat
 set nobeep
     # 20150515 #7 from [02]
-
-
 
 # ----------------------------------------------------------------------
 # RESOURCES
@@ -61,10 +55,3 @@ set nobeep
 # [01] http://www.over-yonder.net/~fullermd/projects/tcshrc/.tcshrc
 # [02] http://www.tcsh.org/TipsAndTricks
 #
-
-
-
-
-# Setting PATH for Python 3.4
-# The orginal version is saved in .cshrc.pysave
-set path=(/Library/Frameworks/Python.framework/Versions/3.4/bin $path)
