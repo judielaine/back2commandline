@@ -4,7 +4,7 @@
 # A record of best-practices informed first by PEP 0008.
 # 
 # Judith E. Bush
-# Time-stamp: "2015-05-22 19:15:49 judielaine"
+# Time-stamp: "2015-05-27 10:28:27 bushj"
 #
 # References:
 # PEP 0008 Style Guide for Python Code
@@ -18,6 +18,7 @@
 #
 
 # Standard library imports ---------------------------------------------#------#
+# import this # Zen of Python easter egg
 import unittest
 
 

@@ -1,7 +1,7 @@
 #
 # Back to the command line. ~JEB 20150515
 #
-# Time-stamp: "2015-05-26 18:16:37 judielaine"
+# Time-stamp: "2015-05-27 16:47:43 bushj"
 
 
 # ----------------------------------------------------------------------
@@ -10,20 +10,34 @@
 set whichUser=$USER
 switch("$whichUser")
     case "judielaine":
+	echo "Welcome home, Blondie!"
 	alias emacs /opt/local/bin/emacs
-    	echo "Welcome home, Blondie!"
-	setenv PATH /opt/local/bin:/opt/local/sbin:$PATH
-	setenv PATH $PATH":/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin/"
-	setenv PATH $PATH":/opt/local/Library/Frameworks/Python.framework/Versions/3.4/bin"
+	
+	if ( ! ($?WINDOW)) then
+	    setenv PATH /opt/local/bin:/opt/local/sbin:$PATH
+	    setenv PATH $PATH":/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin/"
+	    setenv PATH $PATH":/opt/local/Library/Frameworks/Python.framework/Versions/3.4/bin"
+	endif
 	echo "Path is "$PATH
 	breaksw
     case "bushj":
 	echo "Now using the Brew paths and other tcshrc customizations."
-    	# 20150515 this is where the d/l vs of emacs was installed and is needed for office
+
+	# 20150515 this is where the d/l vs of emacs was installed and is needed for office
 	alias emacs /usr/local/bin/emacs
-	# 20150520 this is where Brew puts code
-	setenv PATH "/usr/local/Cellar:$PATH"
-        echo "Path is "$PATH
+
+	# 20150527 When running sudo pip3:
+	# The directory ... is not owned by the current user and the
+	# cache has been disabled. Please check the permissions and
+	# owner of that directory. If executing pip with sudo, you may
+	# want sudo's -H flag.
+	alias sudopip sudo -H /usr/local/Cellar/python3/3.4.3/bin/pip3
+        
+	if ( ! ($?WINDOW)) then
+	    # 20150520 this is where Brew puts code
+	    setenv PATH "/usr/local/Cellar:$PATH"
+	endif
+	echo "Path is "$PATH
        	breaksw
 endsw	    
 
