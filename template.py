@@ -4,7 +4,7 @@
 # A record of best-practices informed first by PEP 0008.
 # 
 # Judith E. Bush
-# Time-stamp: "2015-05-27 10:28:27 bushj"
+# Time-stamp: "2015-05-29 12:24:54 bushj"
 #
 # References:
 # PEP 0008 Style Guide for Python Code
@@ -15,11 +15,13 @@
 #     https://github.com/gabrielelanaro/emacs-for-python/wiki/workflow
 # 26.3. unittest — Unit testing framework
 #     https://docs.python.org/3/library/unittest.html
-#
+# PEP 0435: Adding an Enum type to the Python standard library
+#     https://www.python.org/dev/peps/pep-0435/
 
 # Standard library imports ---------------------------------------------#------#
 # import this # Zen of Python easter egg
 import unittest
+from enum import Enum
 
 
 # Related third party imports ------------------------------------------#------#
