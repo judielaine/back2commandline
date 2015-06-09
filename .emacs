@@ -1,7 +1,7 @@
 ;;
 ;; Back to the command line ~JEB 20150515
 ;;
-;; Time-stamp: "2015-05-26 17:33:17 judielaine"
+;; Time-stamp: "2015-06-08 16:53:01 bushj"
 ;;
 
 
@@ -140,6 +140,8 @@
 (setq org-log-done t)
 (setq org-catch-invisible-edits t)
 (setq org-html-checkbox-type 'html)
+;; 20150608 http://stackoverflow.com/questions/30688204/task-dependency-in-org-mode
+(setq org-enforce-todo-dependencies t)
 ;;          from http://www.emacswiki.org/emacs/OrgMode#toc19 See
 ;; UPDATE 2014-03-28: Newer versions of org have the
 ;; org-html-checkbox-type variable, which you can set to unicode. Use
