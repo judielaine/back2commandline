@@ -1,7 +1,7 @@
 ;;
 ;; Back to the command line ~JEB 20150515
 ;;
-;; Time-stamp: "2015-06-08 16:53:01 bushj"
+;; Time-stamp: "2015-06-14 17:54:44 judielaine"
 ;;
 
 
@@ -85,13 +85,12 @@
 ;; DIARY MODE -----------------------------------------------------------
 ;; REF: http://sunsite.univie.ac.at/textbooks/emacs/emacs_33.html
 ;; 20150517 - http://www.emacswiki.org/emacs/DiaryMode
-(require 'calendar)  
-(calendar-set-date-style 'iso)
-;; 20150518 - sorted in order
-(add-hook 'list-diary-entries-hook 'sort-diary-entries t)
+;;(require 'calendar)  
 
-;; 20150519
-(setq org-agenda-include-diary t)
+;; 20150518 - sorted in order
+;; (add-hook 'list-diary-entries-hook 'sort-diary-entries t)
+
+
 
 ;; EVERNOTE MODE --------------------------------------------------------
 ;; 2015-05-17 http://emacs-evernote-mode.googlecode.com/svn/branches/0_41/doc/readme_en.html
@@ -139,30 +138,14 @@
 ;;          timestamps on "done" C-c C-t
 (setq org-log-done t)
 (setq org-catch-invisible-edits t)
+;; 201506`3 took out soume of the non-functioning check box stuff
 (setq org-html-checkbox-type 'html)
 ;; 20150608 http://stackoverflow.com/questions/30688204/task-dependency-in-org-mode
 (setq org-enforce-todo-dependencies t)
-;;          from http://www.emacswiki.org/emacs/OrgMode#toc19 See
-;; UPDATE 2014-03-28: Newer versions of org have the
-;; org-html-checkbox-type variable, which you can set to unicode. Use
-;; M-x customize-variable org-html-checkbox-type to see if you have
-;; it. --
-;; http://sachachua.com/blog/2014/03/emacs-tweaks-export-org-checkboxes-using-utf-8-symbols/
-
-;;          from http://www.emacswiki.org/emacs/OrgMode#toc19 
-
-(defun sacha/org-html-checkbox (checkbox)
-  "Format CHECKBOX into HTML."
-  (case checkbox (on "<span class=\"check\">&#x2611;</span>") ; checkbox (checked)
-	(off "<span class=\"checkbox\">&#x2610;</span>")
-	(trans "<code>[-]</code>")
-	(t "")))
-(defadvice org-html-checkbox (around sacha activate)
-    (setq ad-return-value (sacha/org-html-checkbox (ad-get-arg 0))))
-;;          from http://stackoverflow.com/questions/22988092/emacs-org-mode-export-markdown
-(eval-after-load "org"
-  '(require 'ox-md nil t))
-
+;; 20150613 default is 14
+(setq org-deadline-warning-days 8)
+;; 20150614 http://orgmode.org/worg/org-faq.html#orgheadline140
+(setq org-agenda-todo-ignore-scheduled t)
 ;; 20150521 - reading the org-mode manual systematically
 (setq org-catch-invisible-edits t
       ;; from http://writequit.org/org/settings.html
@@ -178,7 +161,6 @@
     (when (eq (car object) 'link)
       (message "%s"
 	       (org-element-property :raw-link object)))))
-;(add-hook 'post-command-hook 'org-link-message)
 
 
 ;; PYTHON MODE ----------------------------------------------------------
