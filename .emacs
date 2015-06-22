@@ -1,7 +1,7 @@
 ;;
 ;; Back to the command line ~JEB 20150515
 ;;
-;; Time-stamp: "2015-06-14 17:54:44 judielaine"
+;; Time-stamp: "2015-06-21 16:02:53 judielaine"
 ;;
 
 
@@ -89,7 +89,9 @@
 
 ;; 20150518 - sorted in order
 ;; (add-hook 'list-diary-entries-hook 'sort-diary-entries t)
-
+(setq calendar-latitude 37.4)
+(setq calendar-longitude -122.1)
+(setq calendar-location-name "Mountain View, CA")
 
 
 ;; EVERNOTE MODE --------------------------------------------------------
@@ -153,6 +155,9 @@
       org-drawers `("PROPERTIES" "CLOCK" "LOGBOOK" "HIDDEN" "RESULTS")
       ;; timestamps on "done" C-c C-t 20150515-17
       org-log-done t)
+;; 20150621 Sunrise-set
+(setq org-agenda-sunrise-sunset t)
+
 
 ;; 20150522 - http://stackoverflow.com/questions/30312638/is-there-a-package-or-setting-to-show-an-org-mode-link-under-cursor-destinatio
 (defun org-link-message ()
