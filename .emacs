@@ -1,7 +1,7 @@
 ;;
 ;; Back to the command line ~JEB 20150515
 ;;
-;; Time-stamp: "2015-06-21 16:02:53 judielaine"
+;; Time-stamp: "2015-10-20 13:31:33 bushj"
 ;;
 
 
@@ -69,9 +69,10 @@
 	     '("melpa" . "http://melpa.org/packages/") t)
 (add-to-list 'package-archives
 	     '("org" . "http://orgmode.org/elpa/") t)
+(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize) 
 
 ;; ----------------------------------------------------------------------
@@ -166,6 +167,16 @@
     (when (eq (car object) 'link)
       (message "%s"
 	       (org-element-property :raw-link object)))))
+
+;; PlantUML -------------------------------------------------------------
+;; 20151020 see https://github.com/skuro/puml-mode
+;; Enable puml-mode for PlantUML files
+;; C-c C-c  renders a PlantUML diagram from the current buffer in the best supported format
+;; (setq puml-plantuml-jar-path "~/.emacs.d/lisp/plantuml.jar")
+(add-to-list 'auto-mode-alist
+	     '("\\.puml\\'" . puml-mode)
+	     '("\\.plantuml\\'" . puml-mode))
+
 
 
 ;; PYTHON MODE ----------------------------------------------------------
