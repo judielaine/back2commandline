@@ -1,0 +1,8 @@
+#
+#  Time-stamp: "2015-12-23 16:25:47 bushj" 
+#
+
+# Ignore emacs "noise"
+*~
+*#
+.#*

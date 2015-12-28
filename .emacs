@@ -1,7 +1,7 @@
 ;;
 ;; Back to the command line ~JEB 20150515
 ;;
-;; Time-stamp: "2015-10-20 13:31:33 bushj"
+;; Time-stamp: "2015-12-28 09:33:59 bushj"
 ;;
 
 
@@ -19,8 +19,6 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  )
-
-
 
 ;; ----------------------------------------------------------------------
 ;;                                                         file locations
@@ -46,7 +44,7 @@
 (add-hook 'before-save-hook 'time-stamp)
 (setq time-stamp-pattern nil)
 
-;; GIT ------------------------------------------------------------------
+;; GIT (and MAGIT) ------------------------------------------------------
 ;
 ;; 20150515 - @WorkMac does not have the git.el file on it anywhere. So
 ;;          d/l the two files from
@@ -55,6 +53,8 @@
 ;;          See http://alexott.net/en/writings/emacs-vcs/EmacsGit.html#sec3
 (require 'git)
 (require 'git-blame)
+;; 20151224 adding magit
+(global-set-key (kbd "C-x g") 'magit-status)
 
 ;; Package management ---------------------------------------------------
 ;
