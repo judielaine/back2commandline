@@ -2,7 +2,6 @@
 ;; Back to the command line ~JEB 20150515
 ;;
 ;; Time-stamp: "2015-10-20 13:31:33 bushj"
-
 ;;
 
 
@@ -147,7 +146,7 @@
 ;; 20150608 http://stackoverflow.com/questions/30688204/task-dependency-in-org-mode
 (setq org-enforce-todo-dependencies t)
 ;; 20150613 default is 14
-(setq org-deadline-warning-days 3)
+(setq org-deadline-warning-days 8)
 ;; 20150614 http://orgmode.org/worg/org-faq.html#orgheadline140
 (setq org-agenda-todo-ignore-scheduled t)
 ;; 20150521 - reading the org-mode manual systematically
