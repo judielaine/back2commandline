@@ -1,7 +1,7 @@
 ;;
 ;; Back to the command line ~JEB 20150515
 ;;
-;; Time-stamp: "2015-12-28 09:33:59 bushj"
+;; Time-stamp: "2016-01-09 04:42:55 judielaine"
 ;;
 
 
@@ -138,27 +138,29 @@
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 
-;;          timestamps on "done" C-c C-t
-(setq org-log-done t)
-(setq org-catch-invisible-edits t)
-;; 201506`3 took out soume of the non-functioning check box stuff
-(setq org-html-checkbox-type 'html)
-;; 20150608 http://stackoverflow.com/questions/30688204/task-dependency-in-org-mode
-(setq org-enforce-todo-dependencies t)
-;; 20150613 default is 14
-(setq org-deadline-warning-days 8)
-;; 20150614 http://orgmode.org/worg/org-faq.html#orgheadline140
-(setq org-agenda-todo-ignore-scheduled t)
-;; 20150521 - reading the org-mode manual systematically
-(setq org-catch-invisible-edits t
-      ;; from http://writequit.org/org/settings.html
-      ;; Separate drawers for clocking and logs 20150521
-      org-drawers `("PROPERTIES" "CLOCK" "LOGBOOK" "HIDDEN" "RESULTS")
-      ;; timestamps on "done" C-c C-t 20150515-17
-      org-log-done t)
+
 ;; 20150621 Sunrise-set
 (setq org-agenda-sunrise-sunset t)
-
+;; 20150614 http://orgmode.org/worg/org-faq.html#orgheadline140
+(setq org-agenda-todo-ignore-scheduled t)
+(setq org-catch-invisible-edits t)
+;; from http://writequit.org/org/settings.html
+;; Separate drawers for clocking and logs 20150521
+(setq org-drawers `("PROPERTIES" "CLOCK" "LOGBOOK" "HIDDEN" "RESULTS"))
+;; 20150613 default is 14
+(setq org-deadline-warning-days 8)
+;; 20150608 http://stackoverflow.com/questions/30688204/task-dependency-in-org-mode
+(setq org-enforce-todo-dependencies t)
+;; 201506`3 took out soume of the non-functioning check box stuff
+(setq org-html-checkbox-type 'html)
+;;          timestamps on "done" C-c C-t
+(setq org-log-done t)
+;; 20160109 https://www.gnu.org/software/emacs/manual/html_node/org/Workflow-states.html
+(setq org-todo-keywords
+      '((sequence "TODO" "|" "DONE" "PUNT" "PAUS" "OBSL")))
+;; PUNT: failed to complete this, no longer intend to work on it.
+;; PAUSe: i may wish to return to this, but not now
+;; OBSoLete: this is no longer relevant due to external issues
 
 ;; 20150522 - http://stackoverflow.com/questions/30312638/is-there-a-package-or-setting-to-show-an-org-mode-link-under-cursor-destinatio
 (defun org-link-message ()
