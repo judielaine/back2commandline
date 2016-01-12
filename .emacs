@@ -1,7 +1,7 @@
 ;;
 ;; Back to the command line ~JEB 20150515
 ;;
-;; Time-stamp: "2016-01-09 04:42:55 judielaine"
+;; Time-stamp: "2016-01-11 20:29:34 judielaine"
 ;;
 
 
@@ -143,6 +143,12 @@
 (setq org-agenda-sunrise-sunset t)
 ;; 20150614 http://orgmode.org/worg/org-faq.html#orgheadline140
 (setq org-agenda-todo-ignore-scheduled t)
+;; https://emacs.stackexchange.com/questions/2668/is-there-a-way-to-set-the-global-agenda-sorting
+(setq org-agenda-sorting-strategy
+      '((agenda time-up category-up)
+	(todo priority-down category-up)
+	(tags priority-down category-keep)
+	(search category-keep)))
 (setq org-catch-invisible-edits t)
 ;; from http://writequit.org/org/settings.html
 ;; Separate drawers for clocking and logs 20150521
