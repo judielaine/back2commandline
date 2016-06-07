@@ -1,7 +1,7 @@
 ;;
 ;; Back to the command line ~JEB 20150515
 ;;
-;; Time-stamp: "2016-01-11 20:29:34 judielaine"
+;; Time-stamp: "2016-06-03 09:14:15 bushj"
 ;;
 
 
@@ -90,9 +90,9 @@
 
 ;; 20150518 - sorted in order
 ;; (add-hook 'list-diary-entries-hook 'sort-diary-entries t)
-(setq calendar-latitude 37.4)
-(setq calendar-longitude -122.1)
-(setq calendar-location-name "Mountain View, CA")
+(setq calendar-latitude 35.7524351)
+(setq calendar-longitude -79.1774241)
+(setq calendar-location-name "Clowderwood, Chatham County, NC")
 
 
 ;; EVERNOTE MODE --------------------------------------------------------
