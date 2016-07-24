@@ -1,7 +1,7 @@
 #
 # Back to the command line. ~JEB 20150515
 #
-# Time-stamp: "2015-05-27 16:47:43 bushj"
+# Time-stamp: "2016-07-24 17:46:41 judielaine"
 
 
 # ----------------------------------------------------------------------
@@ -11,11 +11,11 @@ set whichUser=$USER
 switch("$whichUser")
     case "judielaine":
 	echo "Welcome home, Blondie!"
-	alias emacs /opt/local/bin/emacs
+#NewMacs	alias emacs /opt/local/bin/emacs
 	
 	if ( ! ($?WINDOW)) then
-	    setenv PATH /opt/local/bin:/opt/local/sbin:$PATH
-	    setenv PATH $PATH":/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin/"
+#NewMacs	    setenv PATH /opt/local/bin:/opt/local/sbin:$PATH
+	    setenv PATH $PATH":/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin"
 	    setenv PATH $PATH":/opt/local/Library/Frameworks/Python.framework/Versions/3.4/bin"
 	endif
 	echo "Path is "$PATH
