@@ -1,7 +1,7 @@
 ;;
 ;; Back to the command line ~JEB 20150515
 ;;
-;; Time-stamp: "2016-06-03 09:14:15 bushj"
+;; Time-stamp: "2016-11-23 10:24:32 bushj"
 ;;
 
 
@@ -180,11 +180,16 @@
 ;; 20151020 see https://github.com/skuro/puml-mode
 ;; Enable puml-mode for PlantUML files
 ;; C-c C-c  renders a PlantUML diagram from the current buffer in the best supported format
+;; 20161123 added .iuml & flycheck
 ;; (setq puml-plantuml-jar-path "~/.emacs.d/lisp/plantuml.jar")
 (add-to-list 'auto-mode-alist
 	     '("\\.puml\\'" . puml-mode)
+	     '("\\.iuml\\'" . puml-mode)
 	     '("\\.plantuml\\'" . puml-mode))
 
+(with-eval-after-load 'flycheck
+  (require 'flycheck-plantuml)
+  (flycheck-plantuml-setup))
 
 
 ;; PYTHON MODE ----------------------------------------------------------
