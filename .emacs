@@ -1,7 +1,7 @@
 ;;
 ;; Back to the command line ~JEB 20150515
 ;;
-;; Time-stamp: "2016-11-23 10:24:32 bushj"
+;; Time-stamp: "2016-12-05 11:54:50 bushj"
 ;;
 
 
@@ -184,8 +184,8 @@
 ;; (setq puml-plantuml-jar-path "~/.emacs.d/lisp/plantuml.jar")
 (add-to-list 'auto-mode-alist
 	     '("\\.puml\\'" . puml-mode)
-	     '("\\.iuml\\'" . puml-mode)
-	     '("\\.plantuml\\'" . puml-mode))
+	     '("\\.iuml\\'" . puml-mode))
+;;	     '("\\.plantuml\\'" . puml-mode))
 
 (with-eval-after-load 'flycheck
   (require 'flycheck-plantuml)
