@@ -1,7 +1,7 @@
 ;;
 ;; Back to the command line ~JEB 20150515
 ;;
-;; Time-stamp: "2016-12-05 11:54:50 bushj"
+;; Time-stamp: "2016-12-23 09:38:30 bushj"
 ;;
 
 
@@ -178,19 +178,21 @@
 
 ;; PlantUML -------------------------------------------------------------
 ;; 20151020 see https://github.com/skuro/puml-mode
+;; NOW see https://github.com/skuro/plantuml-mode
 ;; Enable puml-mode for PlantUML files
 ;; C-c C-c  renders a PlantUML diagram from the current buffer in the best supported format
 ;; 20161123 added .iuml & flycheck
-;; (setq puml-plantuml-jar-path "~/.emacs.d/lisp/plantuml.jar")
+;;(setq puml-plantuml-jar-path "~/.emacs.d/lisp/plantuml.jar")
 (add-to-list 'auto-mode-alist
-	     '("\\.puml\\'" . puml-mode)
-	     '("\\.iuml\\'" . puml-mode))
-;;	     '("\\.plantuml\\'" . puml-mode))
+	     '("\\.puml\\'" . plantuml-mode)
+	     '("\\.iuml\\'" . plantuml-mode))
+;;	     '("\\.plantuml\\'" . plantuml-mode))
 
 (with-eval-after-load 'flycheck
   (require 'flycheck-plantuml)
   (flycheck-plantuml-setup))
 
+;; 20161223 Fixed mode definition
 
 ;; PYTHON MODE ----------------------------------------------------------
 ;; 20150521 - http://stackoverflow.com/questions/10241279/how-do-i-run-a-python-interpreter-in-emacs
