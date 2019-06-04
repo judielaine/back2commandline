@@ -1,7 +1,7 @@
 ;;
 ;; Back to the command line ~JEB 20150515
 ;;
-;; Time-stamp: "2016-12-23 09:38:30 bushj"
+;; Time-stamp: "2019-06-04 14:26:26 bushj"
 ;;
 
 
@@ -26,7 +26,7 @@
 ;; 20150515 - http://www.emacswiki.org/emacs/LoadPath 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 ;; 20150521 - http://gabrielelanaro.github.io/emacs-for-python/
-(load-file "~/.emacs.d/lisp/gabrielelanaro-emacs-for-python-2f284d1/epy-init.el")
+;;(load-file "~/.emacs.d/lisp/gabrielelanaro-emacs-for-python-2f284d1/epy-init.el")
 ;; 20150526
 (load-file "~/.emacs.d/evernotekey.el")
 
@@ -64,6 +64,12 @@
 ;; deletions). When it’s done installing all the packages it will ask
 ;; if you want to delete the obsolete packages and so you can hit y
 ;; (Yes).
+;;
+;; Note that you'll need to run M-x package-refresh-contents or M-x
+;; package-list-packages to ensure that Emacs has fetched the MELPA
+;; package list before you can install packages with M-x package-
+;; install or similar. QV http://melpa.org/#/getting-started
+
 (require 'package) 
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.org/packages/") t)
@@ -182,7 +188,8 @@
 ;; Enable puml-mode for PlantUML files
 ;; C-c C-c  renders a PlantUML diagram from the current buffer in the best supported format
 ;; 20161123 added .iuml & flycheck
-;;(setq puml-plantuml-jar-path "~/.emacs.d/lisp/plantuml.jar")
+;; 20190604 updated path name per https://github.com/skuro/plantuml-mode/issues/43
+(setq plantuml-jar-path "~/.emacs.d/lisp/plantuml.jar")
 (add-to-list 'auto-mode-alist
 	     '("\\.puml\\'" . plantuml-mode)
 	     '("\\.iuml\\'" . plantuml-mode))
@@ -196,7 +203,7 @@
 
 ;; PYTHON MODE ----------------------------------------------------------
 ;; 20150521 - http://stackoverflow.com/questions/10241279/how-do-i-run-a-python-interpreter-in-emacs
-(setq python-shell-interpreter "/usr/local/bin/python3")
+;;(setq python-shell-interpreter "/usr/local/bin/python3")
 
 
 
@@ -205,3 +212,5 @@
 ;; ----------------------------------------------------------------------
 
 ;; [1] http://dotfiles.github.io/
+
+
