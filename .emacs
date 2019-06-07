@@ -1,23 +1,36 @@
 ;;
 ;; Back to the command line ~JEB 20150515
 ;;
-;; Time-stamp: "2019-06-04 14:26:26 bushj"
+;; Time-stamp: "2019-06-07 09:44:36 bushj"
 ;;
-
+;; ----------------------------------------------------------------------
+;;                                                                how-tos
+;; ----------------------------------------------------------------------
+;;
+;; Q How can I reload .emacs after changing it? [2]
+;; A You can use the command load-file (M-x load-file, then press return
+;; twice to accept the default filename, which is the current file being
+;; edited).
+;; A ou can also just move the point to the end of any sexp and press
+;; C-xC-e to execute just that sexp.
+;; 
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(gud-gdb-command-name "gdb --annotate=1")
  '(large-file-warning-threshold nil)
- '(make-backup-files t))
+ '(make-backup-files t)
+ '(package-selected-packages
+   (quote
+    (w3m orgit magit-gh-pulls magit-filenotify json-mode flycheck-plantuml awk-it))))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
 ;; ----------------------------------------------------------------------
@@ -27,9 +40,6 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 ;; 20150521 - http://gabrielelanaro.github.io/emacs-for-python/
 ;;(load-file "~/.emacs.d/lisp/gabrielelanaro-emacs-for-python-2f284d1/epy-init.el")
-;; 20150526
-(load-file "~/.emacs.d/evernotekey.el")
-
 
 ;; 20150517 - http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html
 ;; 20150519 - changing to include the whole directory
@@ -102,18 +112,17 @@
 
 
 ;; EVERNOTE MODE --------------------------------------------------------
-;; 2015-05-17 http://emacs-evernote-mode.googlecode.com/svn/branches/0_41/doc/readme_en.html
-(setq evernote-ruby-command "/opt/local/bin/ruby")
-(require 'evernote-mode)
-(setq evernote-username "judielaine") ; optional: you can use this username as default.
-(setq evernote-enml-formatter-command '("w3m" "-dump" "-I" "UTF8" "-O" "UTF8")) ; option
-(global-set-key "\C-cec" 'evernote-create-note)
-(global-set-key "\C-ceo" 'evernote-open-note)
-(global-set-key "\C-ces" 'evernote-search-notes)
-(global-set-key "\C-ceS" 'evernote-do-saved-search)
-(global-set-key "\C-cew" 'evernote-write-note)
-(global-set-key "\C-cep" 'evernote-post-region)
-(global-set-key "\C-ceb" 'evernote-browser)
+;; Geeknote via https://github.com/jeffkowalski/geeknote
+;; To work on a local machine need to
+;;     > brew install --HEAD https://raw.githubusercontent.com/jeffkowalski/geeknote/master/geeknote.rb
+;;     > pip install --upgrade pytest    
+;;     > 
+
+;;     > ln -s ~/Documents/PublicGitHubRepository/back2commandline/Dot_geeknote ~/.geeknote
+
+;; mv .geeknote/ ~/Documents/PublicGitHubRepository/back2commandline/Dot_geeknote
+;; bushj-2mbaho:~ bushj$ ln -s ~/Documents/PublicGitHubRepository/back2commandline/Dot_geeknote .geeknote
+
 ;; MARKDOWN MODE --------------------------------------------------------
 
 ;;
@@ -212,5 +221,5 @@
 ;; ----------------------------------------------------------------------
 
 ;; [1] http://dotfiles.github.io/
-
+;; [2] https://stackoverflow.com/questions/2580650/how-can-i-reload-emacs-after-changing-it
 
