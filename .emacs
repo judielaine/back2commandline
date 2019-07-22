@@ -1,7 +1,7 @@
 ;;
 ;; Back to the command line ~JEB 20150515
 ;;
-;; Time-stamp: "2019-06-07 09:44:36 bushj"
+;; Time-stamp: "2019-06-07 17:51:09 bushj"
 ;;
 ;; ----------------------------------------------------------------------
 ;;                                                                how-tos
@@ -25,7 +25,7 @@
  '(make-backup-files t)
  '(package-selected-packages
    (quote
-    (w3m orgit magit-gh-pulls magit-filenotify json-mode flycheck-plantuml awk-it))))
+    (geeknote magit markdown-mode w3m orgit magit-gh-pulls magit-filenotify json-mode flycheck-plantuml awk-it))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
