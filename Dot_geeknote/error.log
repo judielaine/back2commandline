@@ -1,7 +1,0 @@
-2019-06-06 11:14:45,062 oauth getTmpOAuthToken 206 : Unexpected response status on get temporary oauth_token 200 != 401
-2019-06-06 11:15:09,117 geeknote auth 222 : No token service and no dev token.
-2019-06-06 11:15:56,102 oauth getTmpOAuthToken 206 : Unexpected response status on get temporary oauth_token 200 != 401
-2019-06-06 11:45:18,880 geeknote auth 222 : No token service and no dev token.
-2019-06-06 11:52:19,307 oauth getTmpOAuthToken 206 : Unexpected response status on get temporary oauth_token 200 != 401
-2019-06-06 11:52:21,241 geeknote auth 222 : No token service and no dev token.
-2019-06-06 11:52:21,562 geeknote wrapper 111 : Error: createNote : EDAMUserException(errorCode=5, parameter='authenticationToken')
