@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<workflow>
+  <name>ZotQuery</name>
+  <version>8.5</version>
+  <bundle>com.hackademic.zotquery</bundle>
+  <updated>1402327931</updated>
+  <file>zotquery.alfredworkflow</file>
+</workflow>

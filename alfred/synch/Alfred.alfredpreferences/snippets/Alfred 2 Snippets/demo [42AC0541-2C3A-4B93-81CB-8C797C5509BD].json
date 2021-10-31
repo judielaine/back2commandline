@@ -1,0 +1,9 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "{time}-{date}: This is the clipboard: {clipboard}. See more at http:\/\/blog.alfredapp.com\/2014\/05\/21\/tutorial-clipboard-history-and-snippets-in-a-snap\/",
+    "dontautoexpand" : true,
+    "uid" : "42AC0541-2C3A-4B93-81CB-8C797C5509BD",
+    "name" : "demo",
+    "keyword" : "demo"
+  }
+}

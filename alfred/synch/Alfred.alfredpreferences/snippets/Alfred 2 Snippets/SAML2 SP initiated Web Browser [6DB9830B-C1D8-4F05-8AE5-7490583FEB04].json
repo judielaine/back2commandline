@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "SAML2 SP initiated Web Browser SSO profile, see Section 4.1 http:\/\/docs.oasis-open.org\/security\/saml\/v2.0\/saml-profiles-2.0-os.pdf and https:\/\/en.wikipedia.org\/wiki\/Shibboleth_(Internet2).",
+    "uid" : "6DB9830B-C1D8-4F05-8AE5-7490583FEB04",
+    "name" : "SAML2 SP initiated Web Browser",
+    "keyword" : "SP-initiated"
+  }
+}
